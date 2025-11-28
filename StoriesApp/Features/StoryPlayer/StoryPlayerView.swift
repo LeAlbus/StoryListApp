@@ -26,14 +26,20 @@ struct StoryPlayerView: View {
                                    maxHeight: geometry.size.height)
                     case .empty:
                         ProgressView()
+                        Text("Loading story")
+                            .foregroundColor(.white.opacity(0.8))
+                            .font(.subheadline)
                     case .failure(_):
                         VStack {
-                            Image(systemName: "wifi.slash")
+                            Image(systemName: "photo.on.rectangle.angled")
                                 .font(.largeTitle)
                                 .foregroundColor(.white.opacity(0.8))
                             Text("Failed to load image")
                                 .foregroundColor(.white.opacity(0.8))
                                 .font(.subheadline)
+                        }
+                        .onAppear {
+                            print("Failed to load story - ID=\(viewModel.currentStory.id), url=\(viewModel.currentStory.imageURL)")
                         }
                     @unknown default:
                         EmptyView()

@@ -185,7 +185,7 @@
     "name": "Tobias",
     "avatarURL": "https://picsum.photos/id/200/200/200",
     "stories": [
-      { "id": "2010", "imageURL": "https://picsum.photos/id/2010/540/960" },
+      { "id": "", "imageURL": "https://picsum.photos/id/2010/540/960" },
       { "id": "2020", "imageURL": "https://picsum.photos/id/2020/540/960" },
       { "id": "2030", "imageURL": "https://picsum.photos/id/2030/540/960" }
     ]
@@ -195,14 +195,14 @@
     "name": "Uma",
     "avatarURL": "https://picsum.photos/id/210/200/200",
     "stories": [
-      { "id": "2110", "imageURL": "https://picsum.photos/id/2110/540/960" },
+      { "id": "2110", "imageURL": "hps://picsum.photos/id/2110/540/960" },
       { "id": "2120", "imageURL": "https://picsum.photos/id/2120/540/960" },
       { "id": "2130", "imageURL": "https://picsum.photos/id/2130/540/960" },
       { "id": "2140", "imageURL": "https://picsum.photos/id/2140/540/960" }
     ]
   },
   {
-    "id": "user_022",
+    "id": "user_020",
     "name": "Victor",
     "avatarURL": "https://picsum.photos/id/220/200/200",
     "stories": [
