@@ -1,0 +1,239 @@
+[
+  {
+    "id": "user_001",
+    "name": "Andre",
+    "avatarURL": "https://picsum.photos/id/10/200/200",
+    "stories": [
+      { "id": "110", "imageURL": "https://picsum.photos/id/110/540/960" },
+      { "id": "120", "imageURL": "https://picsum.photos/id/120/540/960" },
+      { "id": "130", "imageURL": "https://picsum.photos/id/130/540/960" }
+    ]
+  },
+  {
+    "id": "user_002",
+    "name": "Billy",
+    "avatarURL": "https://picsum.photos/id/20/200/200",
+    "stories": [
+      { "id": "210", "imageURL": "https://picsum.photos/id/210/540/960" },
+      { "id": "220", "imageURL": "https://picsum.photos/id/220/540/960" },
+      { "id": "230", "imageURL": "https://picsum.photos/id/230/540/960" }
+    ]
+  },
+  {
+    "id": "user_003",
+    "name": "Coraline",
+    "avatarURL": "https://picsum.photos/id/30/200/200",
+    "stories": [
+      { "id": "310", "imageURL": "https://picsum.photos/id/310/540/960" },
+      { "id": "320", "imageURL": "https://picsum.photos/id/320/540/960" },
+      { "id": "330", "imageURL": "https://picsum.photos/id/330/540/960" }
+    ]
+  },
+  {
+    "id": "user_004",
+    "name": "Donald",
+    "avatarURL": "https://picsum.photos/id/40/200/200",
+    "stories": [
+      { "id": "410", "imageURL": "https://picsum.photos/id/410/540/960" },
+      { "id": "420", "imageURL": "https://picsum.photos/id/420/540/960" },
+      { "id": "430", "imageURL": "https://picsum.photos/id/430/540/960" }
+    ]
+  },
+  {
+    "id": "user_005",
+    "name": "Elrond",
+    "avatarURL": "https://picsum.photos/id/50/200/200",
+    "stories": [
+      { "id": "510", "imageURL": "https://picsum.photos/id/510/540/960" },
+      { "id": "520", "imageURL": "https://picsum.photos/id/520/540/960" },
+      { "id": "530", "imageURL": "https://picsum.photos/id/530/540/960" }
+    ]
+  },
+  {
+    "id": "user_006",
+    "name": "Figma",
+    "avatarURL": "https://picsum.photos/id/60/200/200",
+    "stories": [
+      { "id": "610", "imageURL": "https://picsum.photos/id/610/540/960" },
+      { "id": "620", "imageURL": "https://picsum.photos/id/620/540/960" },
+      { "id": "630", "imageURL": "https://picsum.photos/id/630/540/960" }
+    ]
+  },
+  {
+    "id": "user_007",
+    "name": "Gwen",
+    "avatarURL": "https://picsum.photos/id/70/200/200",
+    "stories": [
+      { "id": "710", "imageURL": "https://picsum.photos/id/710/540/960" },
+      { "id": "720", "imageURL": "https://picsum.photos/id/720/540/960" }
+    ]
+  },
+  {
+    "id": "user_008",
+    "name": "Henry",
+    "avatarURL": "https://picsum.photos/id/80/200/200",
+    "stories": [
+      { "id": "810", "imageURL": "https://picsum.photos/id/810/540/960" },
+      { "id": "820", "imageURL": "https://picsum.photos/id/820/540/960" },
+      { "id": "830", "imageURL": "https://picsum.photos/id/830/540/960" }
+    ]
+  },
+  {
+    "id": "user_009",
+    "name": "Irina",
+    "avatarURL": "https://picsum.photos/id/90/200/200",
+    "stories": [
+      { "id": "910", "imageURL": "https://picsum.photos/id/910/540/960" }
+    ]
+  },
+  {
+    "id": "user_010",
+    "name": "Jack",
+    "avatarURL": "https://picsum.photos/id/100/200/200",
+    "stories": [
+      { "id": "1010", "imageURL": "https://picsum.photos/id/1010/540/960" },
+      { "id": "1020", "imageURL": "https://picsum.photos/id/1020/540/960" }
+    ]
+  },
+  {
+    "id": "user_011",
+    "name": "Karen",
+    "avatarURL": "https://picsum.photos/id/110/200/200",
+    "stories": [
+      { "id": "1110", "imageURL": "https://picsum.photos/id/1110/540/960" },
+      { "id": "1120", "imageURL": "https://picsum.photos/id/1120/540/960" },
+      { "id": "1130", "imageURL": "https://picsum.photos/id/1130/540/960" },
+      { "id": "1140", "imageURL": "https://picsum.photos/id/1140/540/960" }
+    ]
+  },
+  {
+    "id": "user_012",
+    "name": "Leo",
+    "avatarURL": "https://picsum.photos/id/120/200/200",
+    "stories": [
+      { "id": "1210", "imageURL": "https://picsum.photos/id/1210/540/960" }
+    ]
+  },
+  {
+    "id": "user_013",
+    "name": "Maria",
+    "avatarURL": "https://picsum.photos/id/130/200/200",
+    "stories": [
+      { "id": "1310", "imageURL": "https://picsum.photos/id/1310/540/960" },
+      { "id": "1320", "imageURL": "https://picsum.photos/id/1320/540/960" }
+    ]
+  },
+  {
+    "id": "user_014",
+    "name": "Nikolai",
+    "avatarURL": "https://picsum.photos/id/140/200/200",
+    "stories": [
+      { "id": "1410", "imageURL": "https://picsum.photos/id/1410/540/960" },
+      { "id": "1420", "imageURL": "https://picsum.photos/id/1420/540/960" },
+      { "id": "1430", "imageURL": "https://picsum.photos/id/1430/540/960" },
+      { "id": "1440", "imageURL": "https://picsum.photos/id/1440/540/960" },
+      { "id": "1450", "imageURL": "https://picsum.photos/id/1450/540/960" }
+    ]
+  },
+  {
+    "id": "user_015",
+    "name": "Olivia",
+    "avatarURL": "https://picsum.photos/id/150/200/200",
+    "stories": [
+      { "id": "1510", "imageURL": "https://picsum.photos/id/1510/540/960" }
+    ]
+  },
+  {
+    "id": "user_016",
+    "name": "Paula",
+    "avatarURL": "https://picsum.photos/id/160/200/200",
+    "stories": [
+      { "id": "1610", "imageURL": "https://picsum.photos/id/1610/540/960" },
+      { "id": "1620", "imageURL": "https://picsum.photos/id/1620/540/960" },
+      { "id": "1630", "imageURL": "https://picsum.photos/id/1630/540/960" }
+    ]
+  },
+  {
+    "id": "user_017",
+    "name": "Quinn",
+    "avatarURL": "https://picsum.photos/id/170/200/200",
+    "stories": [
+      { "id": "1710", "imageURL": "https://picsum.photos/id/1710/540/960" },
+      { "id": "1720", "imageURL": "https://picsum.photos/id/1720/540/960" }
+    ]
+  },
+  {
+    "id": "user_018",
+    "name": "Rafael",
+    "avatarURL": "https://picsum.photos/id/180/200/200",
+    "stories": [
+      { "id": "1810", "imageURL": "https://picsum.photos/id/1810/540/960" },
+      { "id": "1820", "imageURL": "https://picsum.photos/id/1820/540/960" },
+      { "id": "1830", "imageURL": "https://picsum.photos/id/1830/540/960" }
+    ]
+  },
+  {
+    "id": "user_019",
+    "name": "Sara",
+    "avatarURL": "https://picsum.photos/id/190/200/200",
+    "stories": [
+      { "id": "1910", "imageURL": "https://picsum.photos/id/1910/540/960" }
+    ]
+  },
+  {
+    "id": "user_020",
+    "name": "Tobias",
+    "avatarURL": "https://picsum.photos/id/200/200/200",
+    "stories": [
+      { "id": "2010", "imageURL": "https://picsum.photos/id/2010/540/960" },
+      { "id": "2020", "imageURL": "https://picsum.photos/id/2020/540/960" },
+      { "id": "2030", "imageURL": "https://picsum.photos/id/2030/540/960" }
+    ]
+  },
+  {
+    "id": "user_021",
+    "name": "Uma",
+    "avatarURL": "https://picsum.photos/id/210/200/200",
+    "stories": [
+      { "id": "2110", "imageURL": "https://picsum.photos/id/2110/540/960" },
+      { "id": "2120", "imageURL": "https://picsum.photos/id/2120/540/960" },
+      { "id": "2130", "imageURL": "https://picsum.photos/id/2130/540/960" },
+      { "id": "2140", "imageURL": "https://picsum.photos/id/2140/540/960" }
+    ]
+  },
+  {
+    "id": "user_022",
+    "name": "Victor",
+    "avatarURL": "https://picsum.photos/id/220/200/200",
+    "stories": [
+      { "id": "2210", "imageURL": "https://picsum.photos/id/2210/540/960" }
+    ]
+  },
+  {
+    "id": "user_023",
+    "name": "Wendy",
+    "avatarURL": "https://picsum.photos/id/230/200/200",
+    "stories": [
+      { "id": "2310", "imageURL": "https://picsum.photos/id/2310/540/960" },
+      { "id": "2320", "imageURL": "https://picsum.photos/id/2320/540/960" }
+    ]
+  },
+  {
+    "id": "user_024",
+    "name": "Xavier",
+    "avatarURL": "https://picsum.photos/id/240/200/200",
+    "stories": [
+      { "id": "2410", "imageURL": "https://picsum.photos/id/2410/540/960" },
+      { "id": "2420", "imageURL": "https://picsum.photos/id/2420/540/960" },
+      { "id": "2430", "imageURL": "https://picsum.photos/id/2430/540/960" }
+    ]
+  },
+  {
+    "id": "user_025",
+    "name": "Yara",
+    "avatarURL": "https://picsum.photos/id/250/200/200",
+    "stories": [
+      { "id": "2510", "imageURL": "https://picsum.photos/id/2510/540/960" }
+    ]
+  }
+]

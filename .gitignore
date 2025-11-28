@@ -1,0 +1,28 @@
+# Xcode
+.DS_Store
+xcuserdata/
+DerivedData/
+*.xcworkspace
+
+# Swift Package Manager
+/.build/
+
+# User-specific files
+*.swp
+*.lock
+*.env
+
+# Fastlane (caso use)
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# CocoaPods (se não usar pods, ignore)
+Pods/
+
+# Carthage
+Carthage/
+
+# SwiftPM
+Packages/
