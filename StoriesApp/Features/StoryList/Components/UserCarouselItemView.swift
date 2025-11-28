@@ -9,38 +9,47 @@ import SwiftUI
 
 struct UserCarouselItemView: View {
     let user: StoryUser
+    let hasUnseenStories: Bool
 
     var body: some View {
         VStack(spacing: 8) {
-            AsyncImage(url: user.avatarURL) { phase in
-                switch phase {
-                case .success(let image):
-                    image
-                        .resizable()
-                        .scaledToFill()
-                case .failure(_):
-                    Color.gray.opacity(0.3)
-                        .overlay(
-                            Image(systemName: "person.fill")
-                                .foregroundColor(.white.opacity(0.7))
-                                .font(.title2)
-                        )
-                case .empty:
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 16)
-                            .fill(Color.gray)
-                            .frame(width: 80, height: 80)
-                        ProgressView()
-                    }
-                @unknown default:
-                    Color.gray.opacity(0.3)
+            ZStack {
+                if hasUnseenStories {
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(Color.purple)
+                        .frame(width: 90, height: 90)
                 }
+                
+                AsyncImage(url: user.avatarURL) { phase in
+                    switch phase {
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .scaledToFill()
+                    case .failure(_):
+                        Color.gray.opacity(0.3)
+                            .overlay(
+                                Image(systemName: "person.fill")
+                                    .foregroundColor(.white.opacity(0.7))
+                                    .font(.title2)
+                            )
+                    case .empty:
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 16)
+                                .fill(Color.gray)
+                                .frame(width: 80, height: 80)
+                            ProgressView()
+                        }
+                    @unknown default:
+                        Color.gray.opacity(0.3)
+                    }
+                }
+                .frame(width: 80, height: 80)
+                .clipShape(RoundedRectangle(cornerRadius: 16))
             }
-            .frame(width: 80, height: 80)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
 
-            Text("\(user.name), \(user.stories.count)")
-                .font(.caption)
+            Text("\(user.name)")
+                .font(.callout)
                 .multilineTextAlignment(.center)
                 .lineLimit(2)
         }
@@ -60,6 +69,6 @@ struct UserCarouselItemView: View {
             Story(id: "11", imageURL: URL(string: "https://picsum.photos/id/11/540/960")!),
         ]
     )
-    return UserCarouselItemView(user: mock)
+    UserCarouselItemView(user: mock, hasUnseenStories: true)
         .padding()
 }

@@ -13,10 +13,11 @@ struct StoriesAppApp: App {
         WindowGroup {
             // Add initial view
             // check tutorial
+            let stateStore = StoryStateStore()
             let repository = StoriesRepository()
             let viewModel = StoryListViewModel(repository: repository)
 
-            StoryListView(viewModel: viewModel)
+            StoryListView(viewModel: viewModel, stateStore: stateStore)
         }
     }
 }

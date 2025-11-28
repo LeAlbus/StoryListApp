@@ -8,6 +8,6 @@
 import Foundation
 
 struct StoryState: Codable {
-    var seenStoryIDs: Set<String>
-    var likedStoryIDs: Set<String>
+    var viewedIDs: Set<String>
+    var likedIDs: Set<String>
 }

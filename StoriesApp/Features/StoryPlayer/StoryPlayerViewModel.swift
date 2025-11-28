@@ -10,11 +10,19 @@ import Foundation
 final class StoryPlayerViewModel: ObservableObject {
     @Published private(set) var currentUserIndex: Int
     @Published private(set) var currentStoryIndex: Int
+    @Published private(set) var isCurrentStoryLiked: Bool = false
+    @Published private(set) var isCurrentStoryViewed: Bool = false
 
     let users: [StoryUser]
+    private let stateStore: StoryStateStoreProtocol
 
-    init(users: [StoryUser], initialUserIndex: Int, initialStoryIndex: Int = 0) {
+    init(users: [StoryUser],
+         initialUserIndex: Int,
+         initialStoryIndex: Int = 0,
+         stateStore: StoryStateStoreProtocol
+    ) {
         self.users = users
+        self.stateStore = stateStore
 
         guard !users.isEmpty else {
             self.currentUserIndex = 0
@@ -34,6 +42,9 @@ final class StoryPlayerViewModel: ObservableObject {
 
         self.currentUserIndex = safeUserIndex
         self.currentStoryIndex = safeStoryIndex
+        
+        markCurrentStoryViewed()
+        refreshCurrentLikeState()
     }
 
     var currentUser: StoryUser {
@@ -43,8 +54,39 @@ final class StoryPlayerViewModel: ObservableObject {
     var currentStory: Story {
         currentUser.stories[currentStoryIndex]
     }
+    
+    var currentStoryPositionText: String {
+        let current = currentStoryIndex + 1
+        let total = currentUser.stories.count
+        return "\(current)/\(total)"
+    }
+    
+    // MARK: - Interaction
+    
+    private func markCurrentStoryViewed() {
+        let alreadyViewed = stateStore.isViewed(
+            userID: currentUser.id,
+            storyID: currentStory.id
+        )
 
-    // MARK: - Navegação entre stories
+        isCurrentStoryViewed = alreadyViewed
+
+        stateStore.markViewed(
+            userID: currentUser.id,
+            storyID: currentStory.id
+        )   
+    }
+    
+    func toggleLike() {
+        stateStore.toggleLike(userID: currentUser.id, storyID: currentStory.id)
+        refreshCurrentLikeState()
+    }
+
+    private func refreshCurrentLikeState() {
+        isCurrentStoryLiked = stateStore.isLiked(userID: currentUser.id, storyID: currentStory.id)
+    }
+
+    // MARK: - Navigation
 
     func goToNextStory() {
         let stories = currentUser.stories
@@ -55,6 +97,8 @@ final class StoryPlayerViewModel: ObservableObject {
         } else {
             goToNextUser(resetStoryIndex: true)
         }
+        refreshCurrentLikeState()
+        markCurrentStoryViewed()
     }
 
     func goToPreviousStory() {
@@ -66,6 +110,8 @@ final class StoryPlayerViewModel: ObservableObject {
         } else {
             goToPreviousUser(goToLastStory: true)
         }
+        refreshCurrentLikeState()
+        markCurrentStoryViewed()
     }
 
     // MARK: - Navegação entre usuários
@@ -78,6 +124,8 @@ final class StoryPlayerViewModel: ObservableObject {
         } else {
             currentStoryIndex = min(currentStoryIndex, currentUser.stories.count - 1)
         }
+        refreshCurrentLikeState()
+        markCurrentStoryViewed()
     }
 
     func goToPreviousUser(goToLastStory: Bool = false) {
@@ -89,5 +137,7 @@ final class StoryPlayerViewModel: ObservableObject {
         } else {
             currentStoryIndex = min(currentStoryIndex, currentUser.stories.count - 1)
         }
+        refreshCurrentLikeState()
+        markCurrentStoryViewed()
     }
 }

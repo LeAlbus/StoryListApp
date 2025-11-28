@@ -25,10 +25,12 @@ struct StoryPlayerView: View {
                             .frame(maxWidth: geometry.size.width,
                                    maxHeight: geometry.size.height)
                     case .empty:
-                        ProgressView()
-                        Text("Loading story")
-                            .foregroundColor(.white.opacity(0.8))
-                            .font(.subheadline)
+                        VStack(spacing: 8) {
+                            ProgressView()
+                            Text("Loading story")
+                                .foregroundColor(.white.opacity(0.8))
+                                .font(.subheadline)
+                        }
                     case .failure(_):
                         VStack {
                             Image(systemName: "photo.on.rectangle.angled")
@@ -45,8 +47,15 @@ struct StoryPlayerView: View {
                         EmptyView()
                     }
                 }
+                .id(viewModel.currentStory.id)
 
                 tapOverlay(geometry: geometry)
+                
+                VStack {
+                    headerOverlay(geometry: geometry)
+                    Spacer()
+                    bottomOverlay(geometry: geometry)
+                }
             }
             .gesture(
                 DragGesture()
@@ -58,6 +67,67 @@ struct StoryPlayerView: View {
         .ignoresSafeArea()
     }
 
+    // MARK: - Overlays
+    
+    private func headerOverlay(geometry: GeometryProxy) -> some View {
+        ZStack(alignment: .top) {
+            LinearGradient(
+                colors: [
+                    Color.black.opacity(1.0),
+                    Color.black.opacity(0.0)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .frame(height: 80)
+            .frame(maxWidth: .infinity)
+            .allowsHitTesting(false)
+
+            VStack(spacing: 4) {
+                Text(viewModel.currentUser.name)
+                    .font(.title3)
+                    .foregroundColor(.white)
+
+                Text(viewModel.currentStoryPositionText)
+                    .font(.headline)
+                    .foregroundColor(.white.opacity(0.8))
+            }
+            .padding(.top, geometry.safeAreaInsets.top + 10)
+            .padding(.horizontal, 16)
+            .frame(maxWidth: .infinity, alignment: .top)
+        }        
+        .padding(.top, geometry.safeAreaInsets.top + 72)
+
+    }
+
+    private func bottomOverlay(geometry: GeometryProxy) -> some View {
+        HStack {
+            Image(systemName: viewModel.isCurrentStoryViewed ? "eye.fill" : "eye.slash.fill")
+                .font(.system(size: 32, weight: .regular))
+                .foregroundColor(viewModel.isCurrentStoryLiked ? .red : .white)
+                .padding(12)
+                .frame(maxWidth: .infinity)
+
+            Spacer()
+
+            likeButton
+        }
+        .padding(.bottom, geometry.safeAreaInsets.bottom + 24)
+        .padding(.horizontal, 16)        
+    }
+    
+    private var likeButton: some View {
+        Button(action: {
+            viewModel.toggleLike()
+        }) {
+            Image(systemName: viewModel.isCurrentStoryLiked ? "heart.fill" : "heart")
+                .font(.system(size: 32, weight: .regular))
+                .foregroundColor(viewModel.isCurrentStoryLiked ? .red : .white)
+                .padding(12)
+        }
+        .frame(maxWidth: .infinity)
+    }
+    
     // MARK: - Navigation
 
     @ViewBuilder
@@ -119,7 +189,7 @@ struct StoryPlayerView: View {
             ]
         )
     ]
-
-    let vm = StoryPlayerViewModel(users: users, initialUserIndex: 0, initialStoryIndex: 0)
-    return StoryPlayerView(viewModel: vm)
+    let stateStore = StoryStateStore()
+    let vm = StoryPlayerViewModel(users: users, initialUserIndex: 0, initialStoryIndex: 0, stateStore: stateStore)
+    StoryPlayerView(viewModel: vm)
 }

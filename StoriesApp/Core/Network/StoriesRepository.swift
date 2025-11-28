@@ -46,7 +46,7 @@ final class StoriesRepository: StoriesRepositoryProtocol {
         return mapRawUsers(rawUsers)
     }
     
-    //MARK: Raw response handling
+    //MARK: - Raw response handling
     
     private func mapRawUsers(_ rawUsers: [RawStoryUser]) -> [StoryUser] {
         var result: [StoryUser] = []
