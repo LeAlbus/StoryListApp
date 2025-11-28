@@ -10,16 +10,16 @@ import SwiftUI
 struct StoryListView: View {
     @StateObject private var viewModel: StoryListViewModel
     private let stateStore: StoryStateStoreProtocol
-
+    
     @State private var selectedUserIndex: Int = 0 
     @State private var isPresentingPlayer = false
     @State private var viewedVersion: Int = 0
-
+    
     init(viewModel: StoryListViewModel, stateStore: StoryStateStoreProtocol) {
         _viewModel = StateObject(wrappedValue: viewModel)
         self.stateStore = stateStore
     }
-
+    
     var body: some View {
         NavigationView {
             Group {
@@ -27,14 +27,14 @@ struct StoryListView: View {
                     VStack(alignment: .center, spacing: 16) {
                         Text("Stories")
                             .font(.title2.bold())
-
+                        
                         ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 16) {
+                            LazyHStack(spacing: 16) {
                                 ForEach(Array(viewModel.users.enumerated()), id: \.element.id) { index, user in
                                     let hasUnseenStories = user.stories.contains { story in
                                         !stateStore.isViewed(userID: user.id, storyID: story.id)
                                     }
-
+                                    
                                     UserCarouselItemView(
                                         user: user,
                                         hasUnseenStories: hasUnseenStories
@@ -42,6 +42,9 @@ struct StoryListView: View {
                                     .onTapGesture {
                                         selectedUserIndex = index
                                         isPresentingPlayer = true
+                                    }
+                                    .onAppear {
+                                        viewModel.loadNextPageIfNeeded(currentIndex: index)
                                     }
                                 }
                             }
@@ -62,7 +65,7 @@ struct StoryListView: View {
                                 Capsule()
                                     .fill(Color.red.opacity(0.1))
                             )
-
+                            
                             Button("Clear likes") {
                                 stateStore.clearLiked()
                             }
@@ -74,7 +77,7 @@ struct StoryListView: View {
                                     .fill(Color.red.opacity(0.1))
                             )
                         }
-
+                        
                         Spacer()
                     }
                     .padding(.horizontal, 16)
@@ -84,7 +87,7 @@ struct StoryListView: View {
                         Text(error)
                             .foregroundColor(.red)
                         Button("Retry") {
-                            viewModel.loadUsers()
+                            viewModel.loadInitialPage()
                         }
                     }
                 } else {
@@ -93,7 +96,12 @@ struct StoryListView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
         }
-        .fullScreenCover(isPresented: $isPresentingPlayer) {
+        .fullScreenCover(
+            isPresented: $isPresentingPlayer,
+            onDismiss: {
+                viewedVersion &+= 1
+            }
+        ) {
             let playerVM = StoryPlayerViewModel(
                 users: viewModel.users,
                 initialUserIndex: selectedUserIndex,

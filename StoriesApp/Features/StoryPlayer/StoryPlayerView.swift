@@ -104,7 +104,7 @@ struct StoryPlayerView: View {
         HStack {
             Image(systemName: viewModel.isCurrentStoryViewed ? "eye.fill" : "eye.slash.fill")
                 .font(.system(size: 32, weight: .regular))
-                .foregroundColor(viewModel.isCurrentStoryLiked ? .red : .white)
+                .foregroundColor(.white)
                 .padding(12)
                 .frame(maxWidth: .infinity)
 
